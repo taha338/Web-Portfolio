@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Work Experience Portfolio</title>
+
+  <style>
+    :root {
+      --neon-primary: #64efff;
+      --neon-secondary: #a887ff;
+      --neon-bg: radial-gradient(circle at top left, #0a0f1f, #050710);
+      --neon-accent: #ff4dc4;
+      --font-main: 'Inter', 'Segoe UI', sans-serif;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html, body {
+      height: 100%;
+      font-family: var(--font-main);
+      background: var(--neon-bg);
+      color: #f0f4ff;
+      line-height: 1.6;
+      scroll-behavior: smooth;
+    }
+    a { color: var(--neon-primary); text-decoration: none; transition: color 0.2s; }
+    a:hover { color: var(--neon-secondary); }
+    h1 { font-size: 2.5rem; color: var(--neon-primary); margin-bottom: .5em; }
+    h2 { font-size: 2rem; color: var(--neon-secondary); margin-bottom: .5em; }
+    h3 { font-size: 1.5rem; margin-bottom: .5em; color: #fff; }
+    p { color: #cbd5e1; margin-bottom: 1em; }
+
+    button, .btn {
+      padding: .75rem 1.5rem;
+      background: linear-gradient(135deg, var(--neon-primary), var(--neon-secondary));
+      border: none; border-radius: .75rem;
+      color: #3e3e3e; font-weight: 600; cursor: pointer;
+      box-shadow: 0 0 15px rgba(0,193,215,0.4);
+      transition: transform .2s, box-shadow .2s;
+    }
+    button:hover, .btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 0 25px rgba(100,239,255,0.6);
+    }
+
+    .container {
+      width: 90%; max-width: 1200px;
+      margin: 2rem auto;
+    }
+
+    .card {
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 1rem; padding: 2rem;
+      backdrop-filter: blur(10px);
+      box-shadow: 0 0 20px rgba(100,239,255,0.1);
+      margin-bottom: 2rem;
+    }
+    /*  */
+    /* === Skill Challenge Styles === */
+.skill-grid {
+  gap: 1rem;
+  margin-top: 1rem;
+}
+.skill-card {
+  background: rgba(255,255,255,0.1);
+  padding: 1rem;
+  border-radius: 0.5rem;
+  text-align: center;
+  cursor: pointer;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+.skill-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 0 15px rgba(100,239,255,0.4);
+}
+.skill-card.selected {
+  background: var(--neon-primary);
+  color: #050710;
+}
+#reveal-persona {
+  margin-top: 1.5rem;
+}
+
+    /*  */
+    /* Hero slider */
+    .hero {
+      position: relative;
+      height: 60vh;
+      overflow: hidden;
+    }
+    .hero-slider .slide {
+      position: absolute; top: 0; left: 0;
+      width: 100%; height: 100%;
+      background-size: cover; background-position: center;
+      opacity: 0; transition: opacity 1s ease;
+    }
+    .hero-slider .slide.active { opacity: 1; }
+    .hero .prev, .hero .next {
+      position: absolute; top: 50%; transform: translateY(-50%);
+      background: rgba(0,0,0,0.5); border: none;
+      color: #f0f4ff; font-size: 1.5rem; padding: .5rem;
+      border-radius: 50%; cursor: pointer;
+    }
+    .hero .prev { left: 1rem; }
+    .hero .next { right: 1rem; }
+
+    /* Timeline */
+    .timeline {
+      position: relative; padding-left: 1rem;
+    }
+    .timeline::before {
+      content: ""; position: absolute;
+      left: 0; top: 0; bottom: 0;
+      width: 4px; background: var(--neon-primary);
+    }
+    .timeline-item {
+      position: relative; margin-left: 2rem;
+      margin-bottom: 2rem; padding-left: 1rem;
+    }
+    .timeline-item::before {
+      content: ""; position: absolute;
+      left: -1.5rem; top: .5rem;
+      width: 1rem; height: 1rem;
+      background: var(--neon-secondary);
+      border-radius: 50%;
+      box-shadow: 0 0 10px var(--neon-secondary);
+    }
+
+    footer {
+      text-align: center; padding: 2rem 0;
+      color: #94a3b8; font-size: .875rem;
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Hero Header with Slider -->
+  <header class="hero">
+    <div class="hero-slider">
+      <div class="slide active" style="background-image:url('https://images.pexels.com/photos/302820/pexels-photo-302820.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1');"></div>
+      <div class="slide" style="background-image:url('https://images.pexels.com/photos/302820/pexels-photo-302820.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1');"></div>
+      <div class="slide" style="background-image:url('https://images.pexels.com/photos/302820/pexels-photo-302820.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1');"></div>
+    </div>
+    <button class="prev" aria-label="Previous Slide">❮</button>
+    <button class="next" aria-label="Next Slide">❯</button>
+  </header>
+
+  <div class="container">
+
+    <!-- About Me -->
+    <section class="card">
+      <h2>About The Design Procsess</h2>
+      <p>Hello! I’m Taha Rahimi the lead designer of this project!, a UX/UI design made for large advertising and printing of 1000+ copys! the prototype was made in figma and after validation, I personally created this mockup for a big popcorn company with Photoshop and Illustrator. it took about a day but came out very great and i am very happy with the results so i decided pick this particully for my portfolio. hope you like it as much as me.</p>
+      <a href="#experience" class="btn">View Deatails</a>
+    </section>
+
+    <!-- Work Experience -->
+    <section id="experience">
+      <h2 class="mb-2">Work Experience</h2>
+      <div class="timeline">
+
+        <div class="timeline-item">
+          <h3>Senior UI/UX Graphgical Designer @ Nagshalmas <span style="font-size:.9rem;color:#cbd5e1;">Jul 2023 - Jun 2024</span></h3>
+          <!-- Jan 2025 - Present -->
+          <!-- Apr 2022 - Jun 2023 -->
+          <p>Making many revamps and/or creating designs of mockups/bussines cars/posters/layouts and etc. Nagshalmas is the biggest company for printing across the country in iran! and was lucky enogh to be able to work and gain so much experience from here.</p>
+        </div>
+
+        <div class="timeline-item" style="filter: blur(5px);">
+          <h3>Product Designer @ BetaTech <span style="font-size:.9rem;color:#cbd5e1;">(Jun 2018 – Dec 2021)</span></h3>
+          <p>Designed and launched three mobile apps that collectively reached over 2M downloads. Ran A/B tests to optimize onboarding, resulting in a 40% lift in activation.</p>
+        </div>
+
+        <div class="timeline-item"  style="filter: blur(5px);">
+          <h3>UI/UX Designer @ Creative Studio <span style="font-size:.9rem;color:#cbd5e1;">(Jul 2015 – May 2018)</span></h3>
+          <p>Collaborated with developers to build marketing microsites and e-commerce platforms. Recognized with the “Innovator Award” for creative concept development.</p>
+        </div>
+
+      </div>
+    </section>
+
+ <!-- 🎮 Design Skill Challenge -->
+<section class="card" id="skill-challenge">
+    <h2>🎮 Design Skill Challenge</h2>
+    <p>Try To Pick My <strong>top 3</strong> design skills below to reveal My design persona:</p>
+    <div class="skill-grid grid grid-3">
+      <div class="skill-card">UX Research</div>
+      <div class="skill-card">Wireframing</div>
+      <div class="skill-card">Prototyping</div>
+      <div class="skill-card">Visual Design</div>
+      <div class="skill-card">Animation</div>
+      <div class="skill-card">Interaction Design</div>
+    </div>
+    <button id="reveal-persona" class="btn" disabled>Reveal Basic Workflow</button>
+  </section>
+  
+  <!-- 🪄 Persona Modal -->
+  <div id="personaModal" class="modal-overlay" style="display:none;">
+    <div class="modal-content-box neon-modal">
+      <h2>Your Design Persona</h2>
+      <p id="personaText"></p>
+      <button class="modal-close-btn" onclick="closePersonaModal()">Close</button>
+    </div>
+  </div>
+  
+
+  </div>
+
+  <footer>
+    &copy; 2025 Taha Rahimi. All rights reserved.
+  </footer>
+
+  <script>
+    let slideIndex = 0, slides;
+    function showSlide(n) {
+      slides.forEach((s,i)=> s.classList.toggle('active', i===n));
+      slideIndex = n;
+    }
+    document.addEventListener('DOMContentLoaded', () => {
+      slides = Array.from(document.querySelectorAll('.hero-slider .slide'));
+      showSlide(0);
+      document.querySelector('.hero .next').onclick = () => showSlide((slideIndex+1)%slides.length);
+      document.querySelector('.hero .prev').onclick = () => showSlide((slideIndex-1+slides.length)%slides.length);
+      setInterval(() => showSlide((slideIndex+1)%slides.length), 5000);
+    });
+// fffffffffffffffffffffffff
+    // Skill selection logic
+    const cards = Array.from(document.querySelectorAll('.skill-card'));
+    let chosen = [];
+  
+    cards.forEach(card => {
+      card.addEventListener('click', () => {
+        const skill = card.textContent;
+        if (chosen.includes(skill)) {
+          chosen = chosen.filter(s => s !== skill);
+          card.classList.remove('selected');
+        } else if (chosen.length < 3) {
+          chosen.push(skill);
+          card.classList.add('selected');
+        }
+        document.getElementById('reveal-persona').disabled = (chosen.length !== 3);
+      });
+    });
+  
+    // Reveal persona
+    document.getElementById('reveal-persona').addEventListener('click', () => {
+      const text = `You picked: ${chosen.join(', ')}.  
+        Here i hade to make sure i focused on being a well-rounded designer who values ${chosen[0]}, thrives on ${chosen[1]},  
+        and bring creativity through ${chosen[2]}!`;
+      document.getElementById('personaText').innerText = text;
+      document.getElementById('personaModal').style.display = 'flex';
+    });
+  
+    // Close modal
+    function closePersonaModal() {
+      document.getElementById('personaModal').style.display = 'none';
+    }
+  </script>
+  
+
+</body>
+</html>

@@ -1,0 +1,630 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>taha portfolio - Project Showcase</title>
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    /* General reset */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Helvetica Neue', sans-serif;
+      line-height: 1.6;
+      background-color: #121212;
+      /* Dark background */
+      color: #ddd;
+      /* Light text */
+    }
+
+    /* Links */
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    /* Header Styles */
+    /* Header Styles */
+    .header {
+      background-color: #1c1c1c;
+      /* Dark header */
+      padding: 1.5rem;
+      border-bottom: 1px solid #444;
+    }
+
+    .nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      /* Allow wrapping on smaller screens */
+    }
+
+    .nav .logo h1 {
+      color: #00FF94;
+      /* Green accent color */
+      font-size: 2rem;
+    }
+
+    /* Navigation links */
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+      flex-wrap: wrap;
+      /* Allow wrapping of items */
+    }
+
+    .nav-links li {
+      list-style: none;
+      position: relative;
+    }
+
+    .nav-links a {
+      color: #ddd;
+      /* Light gray links */
+      font-size: 1.2rem;
+      transition: color 0.3s ease;
+    }
+
+    .nav-links a:hover {
+      color: #00FF94;
+      /* Green on hover */
+    }
+
+    /* Dropdown Menu */
+    .dropdown {
+      position: relative;
+    }
+
+    .dropdown-content {
+      display: none;
+      position: absolute;
+      background-color: #333;
+      min-width: 160px;
+      box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+      z-index: 1;
+    }
+
+    .dropdown-content a {
+      color: white;
+      padding: 12px 16px;
+      text-decoration: none;
+      display: block;
+      font-size: 1rem;
+    }
+
+    .dropdown-content a:hover {
+      background-color: #686767;
+    }
+
+    .dropdown:hover .dropdown-content {
+      display: block;
+    }
+
+
+    /* Project Gallery */
+    .project-gallery {
+      text-align: center;
+      margin-top: 3rem;
+    }
+
+    .project-gallery__main-image img {
+      max-width: 80%;
+      height: auto;
+      border-radius: 8px;
+      transition: transform 0.5s ease;
+    }
+
+    /* About Section */
+    .about {
+      text-align: center;
+      background-color: #1c1c1c;
+      /* Dark background */
+      color: #ddd;
+      /* Light text */
+      padding: 3rem 1rem;
+    }
+
+    /* Footer Section */
+    .footer {
+      background-color: #1c1c1c;
+      /* Dark footer */
+      color: white;
+      padding: 2rem;
+      text-align: center;
+    }
+
+    /* Responsive Design */
+    @media only screen and (max-width: 768px) {
+
+      /* Header */
+      .nav {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .nav .logo h1 {
+        font-size: 1.8rem;
+      }
+
+      .nav-links {
+        flex-direction: column;
+        gap: 1rem;
+      }
+
+      .dropdown-content {
+        width: 100%;
+      }
+    }
+
+    @media only screen and (min-width: 768px) and (max-width: 1024px) {
+      .dropdown-content {
+        width: 160px;
+      }
+    }
+
+
+    .project-gallery__thumbnails {
+      display: flex;
+      justify-content: center;
+      margin-top: 1rem;
+      gap: 1rem;
+      flex-wrap: wrap;
+      /* Allow thumbnails to wrap on small screens */
+    }
+
+    .project-gallery__thumbnails .thumbnail {
+      width: 200px;
+      height: 135px;
+      object-fit: cover;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: transform 0.3s ease, opacity 0.3s ease;
+    }
+
+    .project-gallery__thumbnails .thumbnail:hover {
+      transform: scale(1.1);
+      opacity: 0.8;
+    }
+
+    .project-gallery__details {
+      margin-top: 2rem;
+    }
+
+    .project-title {
+      font-size: 2rem;
+      color: #00FF94;
+      /* Green accent color */
+      font-weight: 700;
+      margin-bottom: 1rem;
+    }
+
+    .project-description {
+      font-size: 1.2rem;
+      color: #bbb;
+      /* Light gray text */
+      line-height: 1.6;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    .cta-button {
+      background-color: #00FF94;
+      /* Green background */
+      color: white;
+      font-size: 1rem;
+      padding: 1rem 2rem;
+      margin: 15px 0;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    .cta-button:hover {
+      background-color: #00e08c;
+      /* Darker green on hover */
+    }
+
+    /* About Section */
+    .about {
+      text-align: center;
+      background-color: #1c1c1c;
+      /* Dark background */
+      color: #ddd;
+      /* Light text */
+      padding: 3rem 1rem;
+    }
+
+    .about h2 {
+      font-size: 2.5rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .about p {
+      font-size: 1.2rem;
+      margin-bottom: 2rem;
+    }
+
+    .about-gallery {
+      display: flex;
+      justify-content: space-around;
+      gap: 1.5rem;
+      flex-wrap: wrap;
+      /* Allow wrapping of items on smaller screens */
+    }
+
+    .about-gallery {
+  display: flex;
+  justify-content: space-around;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+}
+@keyframes fadeSlideInLeft {
+  0% {
+    opacity: 0;
+    transform: translateX(-50px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes fadeSlideInRight {
+  0% {
+    opacity: 0;
+    transform: translateX(50px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.about-item {
+  background-color: #333;
+  padding: 2rem;
+  border-radius: 8px;
+  width: 30%;
+  transition: transform 0.3s ease;
+  text-align: center; /* default for fallback */
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.about-item:nth-child(1) {
+  text-align: left;
+  align-self: flex-start;
+}
+
+.about-item:nth-child(2) {
+  text-align: center;
+  align-self: center;
+}
+
+.about-item:nth-child(3) {
+  text-align: right;
+  align-self: flex-end;
+}
+
+.about-item:hover {
+  transform: translateY(-10px);
+}
+
+.about-item h4 {
+  font-size: 1.8rem;
+  margin-bottom: 1rem;
+}
+
+.about-item p {
+  font-size: 1rem;
+  color: #bbb;
+}
+.about-item.visible:nth-child(odd) {
+  animation: fadeSlideInLeft 0.8s ease forwards;
+}
+
+.about-item.visible:nth-child(even) {
+  animation: fadeSlideInRight 0.8s ease forwards;
+}
+
+    /* Footer Section */
+    .footer {
+      background-color: #1c1c1c;
+      /* Dark footer */
+      color: white;
+      padding: 2rem;
+      text-align: center;
+    }
+
+    .footer-content {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .social-links {
+      margin-top: 1rem;
+    }
+
+    .social-icon {
+      margin: 0 1rem;
+      font-size: 1.2rem;
+      color: white;
+      transition: color 0.3s ease;
+    }
+
+    .social-icon:hover {
+      color: #00FF94;
+      /* Green on hover */
+    }
+
+    /* Responsive Design */
+
+    @media only screen and (max-width: 768px) {
+
+      /* Project Gallery */
+      .project-gallery__main-image img {
+        max-width: 100%;
+      }
+
+      .project-gallery__thumbnails .thumbnail {
+        width: 80px;
+        height: 60px;
+      }
+
+      /* About Section */
+      .about-gallery {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .about-item {
+        width: 80%;
+        margin-bottom: 1.5rem;
+      }
+
+      /* Footer */
+      .footer-content {
+        padding: 1rem;
+      }
+    }
+
+    @media only screen and (min-width: 768px) and (max-width: 1024px) {
+
+      /* Project Gallery */
+      .project-gallery__thumbnails .thumbnail {
+        width: 90px;
+        height: 70px;
+      }
+
+      /* About Section */
+      .about-item {
+        width: 45%;
+      }
+    }
+
+    @media only screen and (min-width: 1024px) {
+
+      /* Project Gallery */
+      .project-gallery__main-image img {
+        max-width: 70%;
+      }
+
+      .project-gallery__details {
+        max-width: 900px;
+        margin: 0 auto;
+      }
+
+      /* About Section */
+      .about-gallery {
+        justify-content: space-between;
+      }
+
+      .about-item {
+        width: 30%;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Header Section -->
+  <header class="header">
+    <nav class="nav">
+      <div class="logo">
+        <h1>Design Studio</h1>
+      </div>
+      <ul class="nav-links">
+        <li><a href="#">Home</a></li>
+
+        <!-- Dropdown Menu: Other Works -->
+        <li class="dropdown">
+          <a href="#">Other Works</a>
+          <div class="dropdown-content">
+            <a href="#" style="color: gray;">Design 1</a>
+            <a href="#">Design 2</a>
+            <a href="#">Design 3</a>
+            <a href="#">Design 4</a>
+            <a href="#">Design 5</a>
+            <a href="#">Design 6</a>
+          </div>
+        </li>
+
+        <!-- About the Client Section -->
+        <!--  disabled style="pointer-events: none; color: #777;" -->
+        <li><a href="#" id="about-client-link" onclick="toggleAboutClient()">About the Client</a></li>
+        <li><a href="#">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Main Project Gallery -->
+  <section class="main-project">
+    <div class="project-gallery">
+      <!-- Main Image Display -->
+
+      <div div class="project-gallery__main-image">
+        <!-- project 1 (one time show first image) -->
+        <img id="main-image" src="../illustrations/connect.svg" alt="Project Image 1">
+      </div>
+      <div class="project-gallery__thumbnails">
+      <!-- image1 -->
+        <!-- Thumbnails for Navigation -->
+        <img class="thumbnail" src="Shirt 3d img.png" alt="Thumbnail 1"
+          onclick="changeImage('Shirt 3d img.png')">
+      <!-- image2 -->
+        <img class="thumbnail" src="sample.png" alt="Thumbnail 3" onclick="changeVideo('Comp 2.mp4')">
+      <!-- image3 -->
+        <img class="thumbnail" src="../illustrations/header.svg" alt="Thumbnail 4" onclick="changeImage('../illustrations/header.svg')">
+      </div>
+      
+      <!-- video -->
+        <video id="main-video" autoplay muted playsinline
+          style="max-width: 80%;margin-top: 10px; border-radius: 8px; display: none;">
+          <source id="main-video-source" src="" type="video/mp4">
+          Your browser does not support the video tag.
+        </video>
+      <!-- video -->
+ 
+      <!-- Project Title and Description -->
+      <div class="project-gallery__details">
+        <h3 class="project-title">Modern Art Gallery</h3>
+        <p class="project-description">A glimpse into contemporary art design that blends minimalism with futuristic
+          visions. This project explores the boundaries of abstract and geometric art forms.</p>
+        <!-- <button class="cta-button">See the Live Page!</button> -->
+         <div style="margin: 30px 0;"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Interactive About Section -->
+  <section class="about">
+    <h2>About Our Work</h2>
+    <p>At our studio, we specialize in pushing the limits of creativity. From graphic design to web interfaces, our goal
+      is to deliver visually stunning experiences.</p>
+    <div class="about-gallery">
+      <div class="about-item">
+        <h4>Creative Process</h4>
+        <p>We take inspiration from everyday life, finding beauty in simplicity and complexity alike.</p>
+      </div>
+      <div class="about-item">
+        <h4>Innovative Solutions</h4>
+        <p>Our solutions are tailored to our client's needs, ensuring the perfect balance between functionality and
+          design.</p>
+      </div>
+      <div class="about-item">
+        <h4>Artistic Vision</h4>
+        <p>We aim to transform ideas into visually compelling works that engage and inspire.</p>
+      </div>
+    </div>
+  </section>
+  <!-- Main Content -->
+
+  <!-- Footer Section -->
+  <footer class="footer">
+    <div class="footer-content">
+      <p>&copy; 2025 Design Studio | All Rights Reserved</p>
+      <div class="social-links">
+        <a href="#" class="social-icon">Facebook</a>
+        <a href="#" class="social-icon">Instagram</a>
+        <a href="#" class="social-icon">Twitter</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Function to change the main project image
+    function changeImage(imageSrc) {
+      const mainImage = document.getElementById('main-image');
+      const mainVideo = document.getElementById('main-video');
+  
+      // Hide video and pause it
+      mainVideo.style.display = 'none';
+      mainVideo.pause();
+  
+      // Show image
+      mainImage.style.display = 'inline-block';
+      mainImage.src = imageSrc;
+  
+      // Style image
+      mainImage.style.maxWidth = '700px';
+      mainImage.style.maxHeight = '500px';
+      mainImage.style.width = '100%';
+      mainImage.style.height = 'auto';
+      mainImage.style.borderRadius = '8px';
+      mainImage.style.margin = '0 auto';
+      mainImage.style.display = 'block';
+    }
+  
+    // Toggle About the Client link (disable or enable)
+    function toggleAboutClient() {
+      const aboutClientLink = document.getElementById('about-client-link');
+      const isDisabled = aboutClientLink.getAttribute('disabled');
+  
+      if (isDisabled !== null) {
+        aboutClientLink.removeAttribute('disabled');
+        aboutClientLink.style.pointerEvents = 'auto';
+      } else {
+        aboutClientLink.setAttribute('disabled', true);
+        aboutClientLink.style.pointerEvents = 'none';
+      }
+    }
+  
+    // Function to change the main project video
+    function changeVideo(videoSrc) {
+      const mainImage = document.getElementById('main-image');
+      const mainVideo = document.getElementById('main-video');
+      const videoSource = document.getElementById('main-video-source');
+  
+      // Hide image
+      mainImage.style.display = 'none';
+  
+      // Update and show video
+      mainVideo.style.display = 'inline-block';
+      videoSource.src = videoSrc;
+      mainVideo.load();
+      mainVideo.play();
+  
+      // Style video
+      mainVideo.style.maxWidth = '700px';
+      mainVideo.style.maxHeight = '500px';
+      mainVideo.style.width = '100%';
+      mainVideo.style.height = 'auto';
+      mainVideo.style.borderRadius = '8px';
+      mainVideo.style.margin = '15px auto';
+      mainVideo.style.display = 'block';
+    }
+
+    // shit
+
+  const aboutItems = document.querySelectorAll('.about-item');
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        observer.unobserve(entry.target); // Trigger once
+      }
+    });
+  }, {
+    threshold: 0.2 // Adjust sensitivity
+  });
+
+  aboutItems.forEach(item => {
+    observer.observe(item);
+  });
+
+
+  </script>
+  
+</body>
+
+</html>
