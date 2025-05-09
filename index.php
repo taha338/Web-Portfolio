@@ -179,8 +179,6 @@
                     <span class="service-card__illustration">
                         <img src="./assets/services/support.svg" alt="Support Illustration"/>
                     </span>
-                    <hr class="service-card__hr">
-                    <p class="service-card__hr-text">Speed, Security, SEO</p>  <!-- Text for the HR -->
                     <h3 class="service-card__title">Deployment</h3>
                     <p class="service-card__text">I offer expert support for all your deployment needs, ensuring smooth and efficient launches.</p>
                     <p class="service-card__msg">I am always available to address any issues or concerns you may have. Ensure your website or application is smoothly deployed to production. From configuring servers to managing domains.</p>
