@@ -223,7 +223,7 @@
             </div>
         </article>
         <article class="work">
-            <div class="work__box" data-link="index.php">
+            <div class="work__box" data-link="./assets/works/PR2.html">
                 <span class="work__img-box">
                     <img src="./assets/works/sample.png" alt="My Work 2"/>
                 </span>
@@ -241,7 +241,7 @@
             </div>
         </article>
         <article class="work">
-            <div class="work__box" data-link="work 3.html">
+            <div class="work__box" data-link="./assets/works/PR3.html">
                 <span class="work__img-box">
                     <img src="./assets/works/sample.png" alt="My Work 3"/>
                 </span>
@@ -254,7 +254,7 @@
             </div>
         </article>
         <article class="work">
-            <div class="work__box" data-link="work 4.html">
+            <div class="work__box" data-link="./assets/works/PR4.html">
                 <span class="work__img-box">
                     <img src="./assets/works/sample.png" alt="My Work 4"/>
                 </span>
@@ -267,7 +267,7 @@
             </div>
         </article>
         <article class="work">
-            <div class="work__box" data-link="work 5.html">
+            <div class="work__box" data-link="./assets/works/PR5.html">
                 <span class="work__img-box">
                     <img src="./assets/works/sample.png" alt="My Work 5"/>
                 </span>
@@ -280,7 +280,7 @@
             </div>
         </article>
         <article class="work">
-            <div class="work__box" data-link="work 6.html">
+            <div class="work__box" data-link="./assets/works/PR6.html">
                 <span class="work__img-box">
                     <img src="./assets/works/sample.png" alt="My Work 6"/>
                 </span>
