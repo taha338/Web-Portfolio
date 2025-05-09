@@ -388,7 +388,14 @@
     }
   });
 });
-
+// spotfiy load after everything:
+window.onload = function () {
+    const container = document.getElementById('spotify-container');
+    const iframe = document.createElement('iframe');
+    iframe.src = "https://open.spotify.com/embed/playlist/37i9dQZF1DXcBWIGoYBM5M"; // example playlist
+    iframe.loading = "lazy"; // optional, browsers may delay loading
+    container.appendChild(iframe);
+  };
 </script> 
 </body>
 </html>
